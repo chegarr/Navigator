@@ -1,0 +1,280 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ondrop="drop(event)" ondragover="allowDrop(event)" oncontextmenu="return false;">
+	<head>
+		<title>Navigator</title>
+		<meta http-equiv="X-UA-Compatible" content="text/plain; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		<link rel="icon" type="img/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="img/png" sizes="96x96" href="/favicon-96x96.png">
+		<link rel="icon" type="img/png" sizes="16x16" href="/favicon-16x16.png">
+
+		<!--Import Google Icon Font material.io/icons -->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css from materializecss.com-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+		<!--Customize materialize.css from materializecss.com-->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+	<body>
+		<!-- Header & Search -->
+		<nav>
+			<div class="nav-wrapper row">
+				<div class="col l3 hide-on-med-and-down">
+					<a href="#" class="brand-logo page-title">Navigator</a>
+				</div>
+				<div class="col s10 m6 input-field">
+					<form action="http://www.google.at/search">
+						<i class="material-icons inline" style="color: white">search</i>
+						<input class="search" id="searchfield" placeholder="Search for..." type="text" autofocus="" name="q" value="">
+					</form>
+				</div>
+				<div class="col s2 m6 l3 right-align">
+					<a href="#" data-activates="slide-out" id="menu-collapse"><i class="material-icons right hide-on-down" >menu</i></a>
+				</div>
+
+			</div>
+		</nav>
+
+		<!-- Float Button -->
+
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-large theme-colored" id="quickAccess"> <i class="large material-icons">flash_on</i> </a>
+			<ul id="floatButtonList"> </ul>
+		</div>
+
+		<!-- Slide out menu -->
+		<ul id="slide-out" class="side-nav">
+			<li>
+				<img class="responsive-img no-dragging" src="img/nav-header.png">
+			</li>
+			<li>
+				<a href="#modalAction" class="waves-effect modal-trigger"><i class="material-icons theme-colored-text">add</i>Add new link</a>
+			</li>
+			<li>
+				<a href="#modalImport" class="waves-effect modal-trigger"><i class="material-icons theme-colored-text">add</i>Import new links</a>
+			</li>
+			<li>
+				<a href="#modalBackup" class="waves-effect modal-trigger"><i class="material-icons theme-colored-text">save</i>Backup &amp; Restore</a>
+			</li>
+			<li>
+				<div class="divider"> </div>
+			</li>
+			<li>
+				<a class="subheader black-text">Settings</a>
+			</li>
+			<li>
+				<a href="#modalButtons" class="waves-effect modal-trigger"><i class="material-icons theme-colored-text">flash_on</i>Quick access</a>
+			</li>
+			<li>
+				<div id="theme_color_selector" class="input-field fitted">
+					<select class="icons">
+						<option value="" data-icon="img/empty.png" class="circle black-text red">Red</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text pink">Pink</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text purple">Purple</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text deep-purple">Deep Purple</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text indigo">Indigo</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text blue">Blue</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text light-blue">Light Blue</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text cyan">Cyan</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text teal">Teal</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text green">Green</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text light-green">Light Green</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text lime">Lime</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text yellow">Yellow</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text amber">Amber</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text orange">Orange</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text deep-orange">Deep Orange</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text brown">Brown</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text grey">Grey</option>
+						<option value="" data-icon="img/empty.png" class="circle black-text blue-grey">Blue Grey</option>
+					</select>
+					<label class="theme-colored-text">Theme color</label>
+				</div>
+			</li>
+			<li>
+				<a href="#" class="btn theme-colored waves-effect waves-light right" id="settingsDone">Apply</a>
+			</li>
+		</ul>
+
+		<!-- Container for all the folders & links -->
+		<div class="container left">
+			<ul id="content_list" class="collapsible popout" data-collapsible="accordion"></ul>
+		</div>
+
+		<!-- Modal: Import -->
+		<div id="modalImport" class="modal modal-fixed-footer">
+			<div id="modal-content" class="modal-content modal-fixed-height">
+				<h4>Import links</h4>
+				<form action="#!">
+					<div class="file-field input-field">
+						<div class="btn theme-colored waves-effect waves-light">
+							<span>File</span>
+							<input id="import_file" type="file">
+						</div>
+						<div class="file-path-wrapper">
+							<input class="file-path validate" type="text" placeholder="Select or drop a file">
+						</div>
+					</div>
+				</form>
+				<ul class="collection" id="import_structure"> </ul>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat" id="importDone">Done</a>
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat" id="importCancel">Cancel</a>
+			</div>
+		</div>
+
+		<!-- Modal: Backup -->
+		<div id="modalBackup" class="modal modal-fixed-footer">
+			<div class="modal-content modal-fixed-height">
+				<h4>Backup and restore data</h4>
+				<a href="#!" id="downloadLink"> </a>
+				<a href="#!" class="btn theme-colored waves-effect waves-light" id="exportData">Export collection</a>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat" id="backupDone">Done</a>
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat" id="backupCancel">Cancel</a>
+			</div>
+		</div>
+
+		<!-- Modal: FAB settings -->
+		<div id="modalButtons" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<h4>Quick access configuration</h4>
+				<div class="row">
+					<div id="modalButtonsInfo" style="display: none;" class="col s12">
+						<div class="card grey darken-1">
+							<div class="card-content white-text">
+								<span class="bold">Material Design icon</span>
+								<p>
+									Look up the icon you want to use on <a class="inlinkeLink" href="https://material.io/icons/">https://material.io/icons</a>
+									Just add the name of the icon as shown for <b>Icon Font</b>
+								</p>
+								<br>
+								<span class="bold">Custom PNG icon</span>
+								<p>
+									You can set the name of a custom icon you put in the /img folder.
+									Ideally use png with 64x64 pixels.
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="modalButtonsName" type="text" class="" value="" placeholder="Name for the button">
+						<label class="active theme-colored-text" for="modalButtonsName">Name</label>
+					</div>
+					<div class="input-field col s12 m6">
+						<input id="modalButtonsIcon" type="text" class="" value="" placeholder="Name of the icon">
+						<label class="active theme-colored-text" for="modalButtonsIcon">Icon name</label>
+						<a id="modalButtonsToggle" href="#!" class="secondary-content inline" tabindex="-1"><i class="material-icons theme-colored-text">info_outline</i></a>
+					</div>
+					<div class="input-field col s12 m9">
+						<input id="modalButtonsURL" type="text" class="" value="" placeholder="https://">
+						<label class="active theme-colored-text" for="modalButtonsURL">Location</label>
+					</div>
+					<div class="col s12 m3">
+						<a id="modalButtonsAdd" href="#" class="btn theme-colored waves-effect waves-light right" disabled>Add</a>
+					</div>
+				</div>
+
+				<table class="highlight" id="modalButtonsTable">
+					<thead>
+						<tr>
+							<th data-field="name">Name</th>
+							<th data-field="icon">Icon</th>
+							<th data-field="url">Link</th>
+							<th data-field="action" style="width: 90px;"></th>
+						</tr>
+					</thead>
+					<tbody> </tbody>
+				</table>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat" id="modalButtonsDone">Apply</a>
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat">Cancel</a>
+			</div>
+		</div>
+
+		<!-- Modal: Action -->
+		<div id="modalAction" class="modal">
+			<div class="modal-content">
+				<h4 id="modalActionHeader">Default title</h4>
+				<div class="input-field">
+					<p id="modalActionText"> </p>
+				</div>
+				<div  id="modalActionFolderSelector" disabled class="input-field" >
+					<select class="icons">
+						<option value="" disabled selected>Select a folder</option>
+					</select>
+					<label class="theme-colored-text">Folder</label>
+				</div>
+				<div class="input-field">
+					<input id="modalActionName" type="text" class="" value="" placeholder="Name of the link">
+					<label class="active theme-colored-text" for="modalActionName">Name</label>
+				</div>
+				<div class="input-field">
+					<input id="modalActionURL" type="text" class="" value="" placeholder="https://">
+					<label class="active theme-colored-text" for="modalActionURL">Location</label>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat" id="modalActionDone">Apply</a>
+				<a href="#!" class="modal-action modal-close waves-effect btn-flat">Cancel</a>
+			</div>
+		</div>
+
+		<!-- Context menu for Links -->
+		<ul class="jctx jctx-id-link dropdown-content">
+			<li data-action="open">
+				<i class="material-icons inline theme-colored-text">open_in_new</i>
+				New Tab
+			</li>
+			<li data-action="edit">
+				<i class="material-icons inline theme-colored-text">edit</i>
+				Edit
+			</li>
+			<!--li data-action="move" class="disabled">
+			<i class="material-icons inline theme-colored-text">swap_horiz</i>
+			Move
+			</li-->
+			<li data-action="delete">
+				<i class="material-icons inline theme-colored-text">delete</i>
+				Delete
+			</li>
+		</ul>
+
+		<!-- Context: Favorites -->
+		<ul class="jctx jctx-id-favorite dropdown-content">
+			<li data-action="open">
+				<i class="material-icons inline theme-colored-text">open_in_new</i>
+				New Tab
+			</li>
+			<li data-action="edit">
+				<i class="material-icons inline theme-colored-text">edit</i>
+				Edit
+			</li>
+			<li data-action="remove">
+				<i class="material-icons inline theme-colored-text">remove_circle</i>
+				Remove
+			</li>
+
+		</ul>
+
+		<!-- Context: Folders -->
+		<ul class="jctx jctx-id-folder dropdown-content">
+			<li data-action="rename">
+				<i class="material-icons inline theme-colored-text">edit</i>
+				Rename
+			</li>
+		</ul>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+		<script type="text/javascript" src="js/init.js"></script>
+		<script type="text/javascript" src="js/foreign.js"></script>
+		<script type="text/javascript" src="js/navigation.js"></script>
+		<script type="text/javascript" src="js/import.js"></script>
+	</body>
+</html>

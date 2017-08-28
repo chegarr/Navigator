@@ -1,0 +1,317 @@
+/* Custom Stylesheet */
+/*
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ *
+ /* changing behavior */
+
+:root {
+	--themecolor: #9e9e9e;
+}
+
+body {
+    background-image: url("../img/background_v0.png");
+    background-color: #cccccc;
+}
+
+.no-dragging {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+/* changing colors / appearance */
+.none {
+	display: none;
+}
+
+.no-shadow {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.no-padding {
+	padding: 0px !important;
+}
+
+.no-margin {
+	margin: 0px !important;
+}
+
+.transparent {
+	border: none;
+	box-shadow: none !important;
+	background-color: transparent;
+}
+
+#import_structure {
+	border: none;
+}
+
+#import_structure > li {
+	background-color: transparent;
+	min-height: 42px;
+}
+
+.chips:empty:not(:focus)
+:before {
+	content: "no items available";
+}
+
+nav input.search {
+	width: 66%;
+	top: 2px;
+	position: relative;
+}
+
+input.search:focus {
+	background-color: rgba(0, 0, 0, 0.15);
+	height: 42px;
+	border-radius: 8px;
+}
+
+.input-field input[type=text]:focus {
+     border-bottom: 2px solid var(--themecolor) !important;
+     box-shadow: none;
+   }
+
+input:focus {
+	border-bottom: 3px solid red;
+}
+
+i.material-icons.inline {
+	display: inline;
+	vertical-align: middle;
+}
+
+i.material-icons.slim {
+	margin-left: 0px;
+}
+
+.card-image .badge {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 1.5em;
+	font-size: 2em;line-height 2em;
+	text-align: center;
+	margin: 0;
+	color: white;
+	display: block;
+}
+
+div.active > a.secondary-content {
+	display: block !important;
+}
+
+div.collapsible-header, div.collapsible-body {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	background-color: transparent;
+	border-bottom: none;
+}
+
+ul.inline li {
+	display: inline;
+}
+
+a.inline {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+}
+
+a.inlinkeLink {
+	color: white;
+	text-decoration: underline;
+}
+
+#modalButtonsAdd {
+	position: relative;
+	top: 1.5em;
+}
+
+.collapsible.popout > li.group-marker {
+	box-shadow: none;
+}
+
+li.active.group-marker {
+	background-color: rgba(0, 0, 0, 0.15);
+	padding: 1em;
+	box-shadow: none !important;
+}
+
+.breadcrumb-list {
+	padding-left: 3.5em;
+	box-shadow: none;
+}
+
+.collapsible-header > .card.horizontal, .collapsible-body > .card.horizontal {
+	margin: 0px;
+	border-radius: 0;
+}
+
+.collapsible-header.active > .card {
+	display: none;
+}
+
+.bold {
+	font-weight: 500;
+}
+
+.fitted {
+	width: 95%;
+    padding-left: 2em;
+}
+
+.fitted label{
+    padding-left: 2.5em;
+}
+
+.fitted .select-wrapper input {
+	top: 12px;
+}
+
+.fitted .select-wrapper span.caret {
+	top: 12px;
+}
+
+div > .dropdown-content {
+	max-height: 350px;
+}
+
+ul.select-dropdown > li > span {
+	color: black;
+}
+
+.input-field label {
+	left: 0px;
+}
+
+nav .brand-logo {
+	padding-left: 24px;
+}
+
+img.icon {
+	position: absolute;
+	width: 60%;
+	height: 60%;
+	top: 20%;
+	left: 20%;
+}
+
+.text-box {
+	resize: none;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	outline: none;
+	margin-top: 0.5em;
+}
+
+.card > .chips {
+	border-bottom: none;
+	margin: 0px;
+	padding: 1em;
+	width: 100%;
+}
+
+.chip img {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 16px 16px;
+	background-color: #cfd8dc;
+	border: none;
+}
+
+.chip.sized {
+	max-width: 20em;
+	min-width: 5em;
+	cursor: pointer;
+}
+
+.modal-fixed-height {
+	overflow-y: hidden !important;
+}
+
+.no-width {
+	width: 0px !important;
+}
+
+.sub-0 ~ span {
+	color: var(--themecolor);
+	/*background-color: var(--themecolor) !important;*/
+}
+
+.sub-1 {
+	left: 2em;
+	margin-right: 2em !important;
+}
+
+.sub-2 {
+	left: 4em;
+	margin-right: 4em !important;
+}
+
+.sub-3 {
+	left: 6em;
+	margin-right: 6em !important;
+}
+
+.sub-4 {
+	left: 8em;
+	margin-right: 8em !important;
+}
+
+.sub-5 {
+	left: 10em;
+	margin-right: 10em !important;
+}
+
+.secondary-second {
+	right: 48px !important;
+}
+
+/* ------------- Context menu style --------------- */
+.jctx {
+	display: none;
+	z-index: 1000;
+	position: absolute;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 0;
+	opacity: 0;
+	-webkit-transition: opacity 200ms;
+	-moz-transition: opacity 200ms;
+	-o-transition: opacity 200ms;
+	-ms-transition: opacity 200ms;
+}
+
+.jctx hr {
+	background-color: grey;
+	height: 1px;
+	border: 0;
+	margin: 2px 0px;
+}
+
+.dropdown-content > li {
+	line-height: 3.5em;
+	padding-left: 0.5em;
+	min-width: 150px;
+	font-weight: 500;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.dropdown-content > li > i{
+	margin-right: 0.2em;
+	top: -3px;
+	position: relative;
+}
+
+
+.dropdown-content > li:last-child {
+	border: none;
+}
